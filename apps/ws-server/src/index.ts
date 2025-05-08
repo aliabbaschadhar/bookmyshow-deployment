@@ -3,9 +3,9 @@ import { prismaClient } from "@repo/db/client"
 
 const wss = new WebSocketServer({ port: 4000 });
 
-wss.on("connection", (socket) => {
+wss.on("connection", async (socket) => {
 
-    prismaClient.user.create({
+    await prismaClient.user.create({
         data: {
             username: Math.random().toString(),
             password: Math.random().toString()
