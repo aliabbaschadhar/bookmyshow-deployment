@@ -5,12 +5,16 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
+  "exports":{
+    "./client":"./src/index.ts"
+  },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*"
   },
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@prisma/client": "6.7.0",
     "prisma": "^6.7.0"
   }
 }
