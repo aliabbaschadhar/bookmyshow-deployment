@@ -8,7 +8,7 @@
   "license": "ISC",
   "type": "commonjs",
   "exports":{
-    "./client":"./src/index.ts"
+    "./client":"./src/index.js"
   },
   "dependencies": {
     "@prisma/client": "6.7.0",
