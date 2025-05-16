@@ -7,6 +7,7 @@ export default async function Home() {
       <h1 className="text-3xl font-bold underline">Hello world</h1>
       <h1>How are you!</h1>
       <p className="text-lg">Welcome to the Next.js app!</p>
+      <h2>Hey yo bro what's up</h2>
       {user?.username}
       {user?.password}
     </main>
