@@ -1,0 +1,32 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [prod]
+
+jobs:
+  deploy_production:
+    name: Deploying to the production cluster
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code #github ec2
+        uses: actions/checkout@v4
+
+
+      - name: Get current branch
+        run: |
+          echo "Current branch: ${{github.ref_name}}"
+        
+      - name: Deploy to production server using ssh
+        uses: appleboy/ssh-action@v1.1.0
+        with: 
+          host: ${{secrets.STAGING_HOST}}
+          username: root
+          key: ${{secrets.SSH_PRIVATE_KEY}}
+          script: |
+            cd bookmyshow-deployment
+            git pull origin prod
+            pnpm install
+            pnpm run build
+            pm2 restart all
